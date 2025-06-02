@@ -465,6 +465,31 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- E-Commerce Fashion Store -->
+                <div class="glass-card rounded-xl overflow-hidden transition transform hover:scale-105">
+                    <div class="p-6">
+                        <div class="text-pink-400 text-3xl mb-4">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">E-Commerce Fashion Store</h3>
+                        <p class="text-gray-300 mb-4">A responsive e-commerce platform for fashion retail with product browsing, cart management, and secure checkout.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-pink-900/50 rounded-full text-xs">HTML</span>
+                            <span class="px-2 py-1 bg-pink-900/50 rounded-full text-xs">CSS</span>
+                            <span class="px-2 py-1 bg-pink-900/50 rounded-full text-xs">JavaScript</span>
+                            <span class="px-2 py-1 bg-pink-900/50 rounded-full text-xs">Responsive Design</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <button class="text-pink-400 hover:text-pink-300 transition" onclick="openModal('fashionModal')">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                            <a href="https://github.com/Dhanya-sri-K/Ecommerce-fashion-store" target="_blank" class="text-gray-400 hover:text-gray-300 transition">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -523,6 +548,27 @@
                     <span class="px-3 py-1 bg-emerald-900/50 rounded-full text-sm">OpenWeather API</span>
                     <span class="px-3 py-1 bg-emerald-900/50 rounded-full text-sm">Decision Tree</span>
                     <span class="px-3 py-1 bg-emerald-900/50 rounded-full text-sm">LLM Integration</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="fashionModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+            <div class="glass-card p-8 rounded-xl max-w-2xl mx-4 max-h-[80vh] overflow-y-auto">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-2xl font-bold">E-Commerce Fashion Store</h3>
+                    <button onclick="closeModal('fashionModal')" class="text-gray-400 hover:text-white">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <p class="mb-4">Developed a responsive, user-friendly e-commerce platform for fashion retail using HTML, CSS, and JavaScript. The platform features a comprehensive shopping experience with product browsing, size selection, and cart management.</p>
+                <p class="mb-6">Implemented key features including user authentication, product filtering, size selection (S, M, L, XL), cart functionality with quantity adjustments, secure checkout process, and additional sections for blog content, brand information, and customer feedback.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1 bg-pink-900/50 rounded-full text-sm">HTML</span>
+                    <span class="px-3 py-1 bg-pink-900/50 rounded-full text-sm">CSS</span>
+                    <span class="px-3 py-1 bg-pink-900/50 rounded-full text-sm">JavaScript</span>
+                    <span class="px-3 py-1 bg-pink-900/50 rounded-full text-sm">Responsive Design</span>
+                    <span class="px-3 py-1 bg-pink-900/50 rounded-full text-sm">E-commerce UX</span>
+                    <span class="px-3 py-1 bg-pink-900/50 rounded-full text-sm">Payment Integration</span>
                 </div>
             </div>
         </div>
@@ -776,7 +822,7 @@
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
-            // Create mailto link
+            // Create mailto link with the correct email address
             const mailtoLink = `mailto:dhanyasri200602@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
             
             // Open email client
