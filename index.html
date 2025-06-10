@@ -22,14 +22,36 @@
             background-color: var(--dark);
             color: var(--light);
             scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
-        .glass-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        body.light-mode {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        
+        body.light-mode .text-gray-300 {
+            color: #1f2937;
+        }
+        
+        body.light-mode .text-gray-400 {
+            color: #4b5563;
+        }
+        
+        body.light-mode .text-gray-500 {
+            color: #6b7280;
+        }
+        
+        body.light-mode .bg-gray-800 {
+            background-color: #f3f4f6;
+        }
+        
+        body.light-mode .bg-gray-900\/50 {
+            background-color: rgba(243, 244, 246, 0.5);
+        }
+        
+        body.light-mode .border-gray-700 {
+            border-color: #e5e7eb;
         }
         
         .gradient-text {
@@ -215,6 +237,57 @@
 
         .skill-card:hover {
             animation: skillPulse 2s infinite;
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+            transition: background 0.3s ease;
+        }
+
+        /* Header specific styles */
+        nav.glass-card {
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        body.light-mode nav.glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode nav.glass-card a {
+            color: #1f2937;
+        }
+
+        body.light-mode nav.glass-card a:hover {
+            color: var(--primary);
+        }
+
+        body.light-mode nav.glass-card button {
+            color: #1f2937;
+        }
+
+        body.light-mode nav.glass-card button:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode nav.glass-card #mobileMenu {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode nav.glass-card #mobileMenu a {
+            color: #1f2937;
+        }
+
+        body.light-mode nav.glass-card #mobileMenu a:hover {
+            color: var(--primary);
         }
     </style>
 </head>
@@ -585,14 +658,14 @@
                 
                 <!-- Timeline items -->
                 <div class="space-y-8">
-                    <!-- 2021 -->
+                    <!-- 2023-2027 -->
                     <div class="relative pl-12 md:pl-0 md:w-1/2 ml-auto md:pr-12">
                         <div class="glass-card p-6 rounded-xl">
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold">SSC Student</h3>
-                                <span class="px-3 py-1 bg-indigo-900/50 rounded-full text-sm">2021</span>
+                                <h3 class="text-xl font-bold">B.Tech Student</h3>
+                                <span class="px-3 py-1 bg-emerald-900/50 rounded-full text-sm">2023-2027</span>
                             </div>
-                            <p class="text-gray-300">Completed Secondary School Certificate with excellent academic performance.</p>
+                            <p class="text-gray-300">Currently pursuing Bachelor of Technology in Artificial Intelligence, developing technical skills and working on various projects.</p>
                         </div>
                     </div>
                     
@@ -607,14 +680,14 @@
                         </div>
                     </div>
                     
-                    <!-- 2023-2027 -->
+                    <!-- 2021 -->
                     <div class="relative pl-12 md:pl-0 md:w-1/2 ml-auto md:pr-12">
                         <div class="glass-card p-6 rounded-xl">
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold">B.Tech Student</h3>
-                                <span class="px-3 py-1 bg-emerald-900/50 rounded-full text-sm">2023-2027</span>
+                                <h3 class="text-xl font-bold">SSC Student</h3>
+                                <span class="px-3 py-1 bg-indigo-900/50 rounded-full text-sm">2021</span>
                             </div>
-                            <p class="text-gray-300">Currently pursuing Bachelor of Technology in Artificial Intelligence, developing technical skills and working on various projects.</p>
+                            <p class="text-gray-300">Completed Secondary School Certificate with excellent academic performance.</p>
                         </div>
                     </div>
                 </div>
@@ -748,25 +821,25 @@
     <script>
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
-        const html = document.documentElement;
+        const body = document.body;
         
         themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+            body.classList.toggle('light-mode');
+            localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : 'dark');
             updateThemeIcon();
         });
         
         function updateThemeIcon() {
-            if (html.classList.contains('dark')) {
-                themeToggle.innerHTML = '<i class="fas fa-sun text-xl"></i>';
-            } else {
+            if (body.classList.contains('light-mode')) {
                 themeToggle.innerHTML = '<i class="fas fa-moon text-xl"></i>';
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-sun text-xl"></i>';
             }
         }
         
         // Check for saved theme preference
         if (localStorage.getItem('theme') === 'light') {
-            html.classList.remove('dark');
+            body.classList.add('light-mode');
         }
         updateThemeIcon();
         
